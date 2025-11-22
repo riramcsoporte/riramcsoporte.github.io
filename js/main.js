@@ -22,9 +22,9 @@ const headerTemplate = `
             </a>
             <ul class="dropdown-menu">
                 <li><a href="servicio-soporte.html"><i class="fa-solid fa-computer"></i> Soporte PC</a></li>
-                <li><a href="servicio-redes.html"><i class="fa-solid fa-network-wired"></i> Redes</a></li>
+                <li><a href="servicio-redes.html"><i class="fa-solid fa-mobile-retro"></i>Celulares</a></li>
                 <li><a href="servicio-ciberseguridad.html"><i class="fa-solid fa-shield-halved"></i> Ciberseguridad</a></li>
-                <li><a href="servicio-cloud.html"><i class="fa-solid fa-server"></i> Cloud & Servidores</a></li>
+                <li><a href="servicio-cloud.html"><i class="fa-solid fa-server"></i> Servicios a domicilio</a></li>
                 <li><a href="servicio-camaras.html"><i class="fa-solid fa-video"></i> Cámaras</a></li>
                 <li><a href="servicio-web.html"><i class="fa-solid fa-code"></i> Diseño Web</a></li>
             </ul>
@@ -44,7 +44,7 @@ const footerTemplate = `
         <div class="footer-col">
             <h3>RIRAMC_Soporte</h3>
             <p style="color:#64748b; font-size:0.9rem; line-height:1.6;">
-                Soluciones tecnológicas integrales para empresas que buscan eficiencia y seguridad.
+                Soluciones tecnológicas integrales para empresas y particulares que buscan eficiencia y seguridad.
             </p>
         </div>
         <div class="footer-col">
