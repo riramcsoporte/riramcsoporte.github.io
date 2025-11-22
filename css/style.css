@@ -1,0 +1,513 @@
+/* --- CONFIGURACIÓN GLOBAL --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+
+:root {
+    --bg-deep: #020203;
+    --primary: #6366f1;
+    --accent: #0ea5e9;
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --text-main: #ffffff;
+    --text-muted: #94a3b8;
+    --font-main: 'Inter', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
+body {
+    background-color: var(--bg-deep);
+    color: var(--text-main);
+    font-family: var(--font-main);
+    overflow-x: hidden;
+    background-image: radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.15), transparent 60%);
+    padding-top: 80px; 
+}
+
+a { text-decoration: none; color: inherit; transition: 0.3s; }
+ul { list-style: none; }
+
+/* --- HEADER & FOOTER --- */
+header { position: fixed; top: 0; left: 0; width: 100%; z-index: 9999; background: rgba(2,2,3,0.95); border-bottom: 1px solid var(--glass-border); padding: 15px 0; backdrop-filter: blur(10px); }
+.navbar { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-size: 1.4rem; font-weight: 800; display: flex; align-items: center; gap: 10px; color: white; }
+.nav-links { display: flex; gap: 40px; }
+.nav-links a { font-size: 0.95rem; color: #94a3b8; }
+.nav-links a:hover { color: white; }
+.menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; color: white; }
+
+footer { border-top: 1px solid var(--glass-border); background: #000; padding: 60px 0 30px; margin-top: 80px; }
+.footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; }
+.footer-col h3, .footer-col h4 { color: white; margin-bottom: 20px; }
+.footer-col a, .footer-col span { display: block; color: #64748b; margin-bottom: 10px; font-size: 0.9rem; }
+.footer-col a:hover { color: var(--accent); }
+.copyright { text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.05); color: #444; font-size: 0.8rem; }
+
+.whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; z-index: 9999; box-shadow: 0 0 20px rgba(37, 211, 102, 0.4); transition: 0.3s; }
+.whatsapp-float:hover { transform: scale(1.1); }
+
+/* --- UTILIDADES --- */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 2; }
+
+/* CAMBIO: Reduje el padding de 100px a 50px para acercar los bloques */
+.section-padding { padding: 50px 0; }
+
+.btn-primary { background: linear-gradient(90deg, var(--primary), var(--accent)); padding: 12px 30px; border-radius: 50px; display: inline-block; color: white; font-weight: bold; box-shadow: 0 4px 20px rgba(99,102,241,0.4); }
+.glass-card { background: rgba(20,20,30,0.6); border: 1px solid var(--glass-border); border-radius: 20px; padding: 30px; backdrop-filter: blur(20px); }
+
+/* Estilos para asegurar que el logo tenga el tamaño correcto */
+.logo img {
+    /* Ajusta la altura según el tamaño de tu barra de navegación.
+       Valores comunes son entre 40px y 80px. */
+    height: 100px;
+
+    /* "width: auto" asegura que la imagen no se deforme,
+       manteniendo su proporción original */
+    width: auto;
+
+    /* Opcional: asegura que no haya espacios extraños debajo de la imagen */
+    display: block;
+    /* Opcional: Si necesitas moverlo un poco para alinearlo */
+    /* margin-top: 5px; */
+}
+
+/* ==========================================
+   ESTILOS ESPECÍFICOS: INICIO (TIERRA ÁTOMO)
+   ========================================== */
+
+/* CAMBIO: Hero más compacto para acercarlo al siguiente bloque */
+.hero { 
+    min-height: auto; /* Antes era 80vh, lo quitamos para que no empuje */
+    padding-top: 80px; /* Espacio superior */
+    padding-bottom: 20px; /* Poco espacio inferior */
+    display: flex; 
+    align-items: center; 
+}
+
+.hero-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 50px; align-items: center; }
+.hero h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 20px; }
+.tag { background: rgba(255,255,255,0.1); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; color: var(--accent); display: inline-block; margin-bottom: 20px; }
+
+/* Sistema Solar */
+.solar-system { position: relative; width: 500px; height: 500px; margin: 0 auto; display: flex; justify-content: center; align-items: center; transform-style: preserve-3d; perspective: 1000px; }
+.earth { position: absolute; width: 280px; height: 280px; border-radius: 50%; background: #000 url('https://www.solarsystemscope.com/textures/download/2k_earth_daymap.jpg') repeat-x; background-size: cover; box-shadow: inset 20px 0 50px 12px rgba(0,0,0,0.9), inset -6px 0 12px rgba(255, 255, 255, 0.3), 0 0 40px rgba(63, 100, 241, 0.3); animation: rotateEarth 60s linear infinite; z-index: 10; }
+.orbit-path { position: absolute; top: 50%; left: 50%; width: 480px; height: 480px; border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 50%; transform-style: preserve-3d; pointer-events: none; box-shadow: 0 0 15px rgba(99, 102, 241, 0.1); }
+
+.path-1 { transform: translate(-50%, -50%) rotateY(75deg) rotateX(15deg); }
+.path-2 { transform: translate(-50%, -50%) rotateY(-75deg) rotateX(15deg); }
+.path-3 { transform: translate(-50%, -50%) rotateX(75deg) rotateY(10deg); }
+.path-4 { transform: translate(-50%, -50%) rotateX(60deg) rotateY(-45deg); }
+
+.satellite-mover { position: absolute; top: 0; left: 0; width: 100%; height: 100%; transform-style: preserve-3d; animation: spinOrbit 20s linear infinite; }
+.path-1 .satellite-mover { animation-duration: 18s; }
+.path-2 .satellite-mover { animation-duration: 22s; animation-direction: reverse; }
+.path-3 .satellite-mover { animation-duration: 25s; }
+.path-4 .satellite-mover { animation-duration: 20s; animation-direction: reverse; }
+
+.satellite { position: absolute; top: 0; left: 50%; transform: translate(-50%, -50%); background: rgba(15, 23, 42, 0.9); border: 1px solid var(--accent); padding: 6px 14px; border-radius: 50px; color: white; font-size: 0.85rem; font-weight: 600; white-space: nowrap; display: flex; gap: 8px; align-items: center; text-decoration: none; pointer-events: auto; animation: counterRotate 20s linear infinite; }
+.satellite:hover { background: var(--accent); color: black; z-index: 100; box-shadow: 0 0 20px var(--accent); }
+
+/* Animaciones Keyframes */
+@keyframes rotateEarth { 0% { background-position: 0 0; } 100% { background-position: 200% 0; } }
+@keyframes spinOrbit { 0% { transform: rotateZ(0deg); } 100% { transform: rotateZ(360deg); } }
+@keyframes counterRotate { 0% { transform: translate(-50%, -50%) rotateZ(360deg); } 100% { transform: translate(-50%, -50%) rotateZ(0deg); } }
+
+/* Pausa al Hover */
+.solar-system:hover .earth, .solar-system:hover .satellite-mover, .solar-system:hover .satellite { animation-play-state: paused !important; }
+
+
+/* ==========================================
+   ESTILOS ESPECÍFICOS: NOSOTROS (BENTO GRID)
+   ========================================== */
+.bento-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 30px; }
+.bento-col-left, .bento-col-right { display: flex; flex-direction: column; gap: 30px; }
+
+.chart-card { min-height: 450px; display: flex; flex-direction: column; justify-content: space-between; }
+.chart-container { width: 100%; height: 150px; background: linear-gradient(to bottom, rgba(99,102,241,0.1), transparent); margin: 20px 0; border-radius: 10px; }
+.chart-svg { width: 100%; height: 100%; }
+.countries-list { display: flex; gap: 15px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; color: #666; font-weight: bold; }
+
+.bento-row-small { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.small-card { min-height: 200px; display: flex; flex-direction: column; justify-content: space-between; }
+.wide-card { min-height: 150px; display: flex; flex-direction: column; justify-content: center; }
+.card-label { background: rgba(255,255,255,0.1); padding: 5px 10px; border-radius: 20px; font-size: 0.75rem; color: #ccc; align-self: flex-start; margin-bottom: 10px; }
+
+.testimonials-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 40px; }
+.testimonial-image { height: 200px; background-size: cover; background-position: center; position: relative; display: flex; align-items: flex-end; padding: 20px; border-radius: 0 0 20px 20px; }
+.testimonial-image::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, black, transparent); }
+.overlay-logo { position: relative; z-index: 2; color: white; font-weight: bold; }
+
+/* ==========================================
+   ESTILOS ESPECÍFICOS: SERVICIOS
+   ========================================== */
+.service-card { display: flex; flex-direction: column; justify-content: space-between; height: 100%; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); border: 1px solid rgba(255, 255, 255, 0.05); }
+.service-card:hover { transform: translateY(-10px); border-color: var(--accent); box-shadow: 0 15px 30px rgba(14, 165, 233, 0.2), inset 0 0 20px rgba(14, 165, 233, 0.05); background: rgba(20, 20, 30, 0.8); }
+.service-card:hover i { color: white !important; text-shadow: 0 0 10px var(--accent); transition: 0.3s; }
+.read-more { display: inline-flex; align-items: center; gap: 8px; margin-top: 25px; font-weight: 600; font-size: 0.95rem; color: var(--accent); text-decoration: none; transition: 0.3s ease; padding: 8px 0; width: fit-content; }
+.read-more i { font-size: 0.8rem; transition: transform 0.3s ease; }
+.read-more:hover { color: white; gap: 15px; }
+.read-more:hover i { color: var(--accent) !important; transform: translateX(5px); }
+
+/* ==========================================
+   ESTILOS ESPECÍFICOS: CONTACTO
+   ========================================== */
+.contact-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+.info-item { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 30px; }
+.info-item i { color: var(--accent); font-size: 1.2rem; margin-top: 5px; }
+.contact-form { padding: 40px; background: rgba(20, 20, 30, 0.8); }
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; color: #ccc; font-size: 0.9rem; margin-bottom: 8px; }
+.contact-form input, .contact-form textarea { width: 100%; padding: 12px 15px; background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; color: white; transition: 0.3s; }
+.contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--primary); background: rgba(0, 0, 0, 0.5); }
+.map-section { width: 100%; height: 450px; margin-top: 50px; border-top: 1px solid var(--glass-border); overflow: hidden; }
+.map-section iframe { display: block; filter: grayscale(100%) invert(92%) contrast(83%); }
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+@media (max-width: 992px) {
+    .hero-grid, .bento-grid, .testimonials-grid, .bento-row-small, .contact-wrapper { grid-template-columns: 1fr; }
+    .solar-system { width: 320px; height: 320px; }
+    .orbit-path { width: 300px; height: 300px; }
+    .earth { width: 180px; height: 180px; }
+    
+    .nav-links { display: none; position: absolute; top: 80px; left: 0; width: 100%; background: rgba(5,5,10,0.98); flex-direction: column; padding: 30px; border-bottom: 1px solid var(--primary); }
+    .nav-links.active { display: flex; }
+    .menu-toggle { display: block; }
+    .map-section iframe { height: 300px; }
+    .contact-info { order: 1; }
+    .contact-form { order: 2; }
+}
+
+/* =========================================
+   ESTILOS PÁGINAS DE DETALLE (SERVICIOS INDIVIDUALES)
+   ========================================= */
+
+/* HERO DE SERVICIO (Cabecera gigante) */
+.service-hero {
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Efecto Parallax */
+    margin-bottom: 80px;
+}
+/* Capa oscura sobre la imagen para leer el texto */
+/* LA CAPA DE SOMBRA DEBE SER TRANSPARENTE ARRIBA */
+.service-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Gradiente transparente a negro */
+    background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(2,2,3,1));
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Aseguramos que la imagen de fondo se comporte bien */
+.hero-bg-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Al fondo de todo */
+}
+
+.hero-bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Que cubra todo sin deformarse */
+}
+
+.service-hero-content {
+    position: relative;
+    z-index: 10; /* El texto siempre arriba de todo */
+}
+.service-hero-content {
+    position: relative; z-index: 2; max-width: 800px;
+    animation: fadeUp 1s ease-out;
+}
+.service-hero h1 { font-size: 4rem; margin-bottom: 20px; text-shadow: 0 0 30px rgba(0,0,0,0.5); }
+.service-hero p { font-size: 1.3rem; color: #ddd; margin-bottom: 30px; }
+
+/* SECCIONES ZIG-ZAG (Texto + Imagen) */
+.showcase-section { padding: 80px 0; overflow: hidden; }
+.showcase-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+}
+/* Invertir orden en móviles o filas pares */
+.showcase-grid.reverse .showcase-text { order: 2; }
+.showcase-grid.reverse .showcase-visual { order: 1; }
+
+.showcase-text h2 { font-size: 2.5rem; margin-bottom: 20px; color: white; }
+.showcase-text p { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 20px; line-height: 1.7; }
+.showcase-text ul { list-style: none; margin-bottom: 30px; }
+.showcase-text ul li { margin-bottom: 10px; display: flex; align-items: center; gap: 10px; color: #ccc; }
+.showcase-text ul li i { color: var(--accent); }
+
+.showcase-visual { position: relative; }
+.showcase-img {
+    width: 100%; border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    border: 1px solid var(--glass-border);
+    transition: transform 0.5s ease;
+}
+.showcase-visual:hover .showcase-img { transform: scale(1.02) rotateY(2deg); }
+
+/* Floating Icon (Efecto 3D simulado) */
+.floating-icon {
+    position: absolute; top: -30px; right: -30px;
+    width: 80px; height: 80px; background: var(--glass-bg);
+    backdrop-filter: blur(10px); border: 1px solid var(--accent);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 2.5rem; color: var(--primary);
+    box-shadow: 0 0 30px rgba(99, 102, 241, 0.4);
+    animation: floatIcon 4s ease-in-out infinite;
+}
+
+@keyframes floatIcon { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+
+/* RESPONSIVE DETALLES */
+@media (max-width: 992px) {
+    .service-hero h1 { font-size: 3rem; }
+    .showcase-grid { grid-template-columns: 1fr; gap: 40px; }
+    .showcase-grid.reverse .showcase-text { order: 1; }
+    .showcase-grid.reverse .showcase-visual { order: 2; }
+    .floating-icon { right: 0; top: -20px; }
+}
+
+/* =========================================
+   ESTILOS DEL SUBMENÚ (DROPDOWN)
+   ========================================= */
+
+/* El contenedor del item padre (Servicios) */
+.dropdown-item {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+/* El Menú Desplegable (Oculto por defecto) */
+.dropdown-menu {
+    position: absolute;
+    top: 100%; /* Justo debajo del header */
+    left: 50%;
+    transform: translateX(-50%) translateY(10px); /* Centrado y bajado un poco */
+    background: rgba(10, 10, 15, 0.95); /* Fondo oscuro sólido/transparente */
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 10px;
+    min-width: 220px; /* Ancho mínimo */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+/* Mostrar al pasar el mouse (Hover) */
+.dropdown-item:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Enlaces dentro del submenú */
+.dropdown-menu li {
+    width: 100%;
+}
+
+.dropdown-menu a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    color: #ccc;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    transition: 0.2s;
+    white-space: nowrap; /* Que el texto no se rompa */
+}
+
+/* Hover en los items del submenú */
+.dropdown-menu a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--accent);
+    padding-left: 20px; /* Pequeño movimiento a la derecha */
+}
+
+.dropdown-menu i {
+    color: var(--primary);
+    width: 20px; /* Ancho fijo para alinear texto */
+    text-align: center;
+}
+
+/* AJUSTE PARA MÓVIL */
+@media (max-width: 992px) {
+    .dropdown-menu {
+        position: static; /* Ya no flota */
+        transform: none;
+        box-shadow: none;
+        background: rgba(255,255,255,0.05);
+        width: 100%;
+        opacity: 1;
+        visibility: visible;
+        display: none; /* Oculto hasta que se active */
+        margin-top: 10px;
+    }
+    
+    /* En móvil, mostramos el menú siempre o al hover (simple) */
+    .dropdown-item:hover .dropdown-menu {
+        display: flex;
+    }
+    
+    .dropdown-item {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+}
+
+/* --- FIX PARA IMÁGENES DE FONDO --- */
+.hero-bg-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Al fondo */
+    overflow: hidden;
+}
+
+.hero-bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cubre todo sin deformarse */
+    object-position: center;
+}
+
+/* Aseguramos que el contenido quede encima de la imagen */
+.service-hero-content {
+    position: relative;
+    z-index: 10; /* Muy arriba */
+}
+
+/* La capa oscura para que se lea el texto */
+.service-hero::before {
+    z-index: 5; /* Entre la imagen y el texto */
+}
+
+/* =========================================
+   CORRECCIÓN HERO SERVICIOS (ARREGLO DE BOTONES Y LUZ)
+   ========================================= */
+
+.service-hero {
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    position: relative; /* Necesario para el posicionamiento absoluto de los hijos */
+    overflow: hidden;
+    margin-bottom: 80px;
+}
+
+/* 1. LA IMAGEN DE FONDO (Nivel 0) */
+.hero-bg-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Al fondo de todo */
+}
+
+.hero-bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* 2. LA CAPA DE SOMBRA (Nivel 1) */
+/* Le bajamos la opacidad y permitimos clicks a través de ella */
+.service-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Gradiente más suave: Negro transparente a Negro sólido abajo */
+    background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(2,2,3,1));
+    z-index: 1; /* Encima de la imagen */
+    pointer-events: none; /* <--- CLAVE: Permite hacer clic en lo que está "debajo" o "junto" a esta capa */
+}
+
+/* 3. EL CONTENIDO Y BOTONES (Nivel 2) */
+.service-hero-content {
+    position: relative;
+    z-index: 2; /* Encima de la sombra */
+    max-width: 800px;
+}
+
+/* Estilos de texto del Hero */
+.service-hero h1 { 
+    font-size: 4rem; 
+    margin-bottom: 20px; 
+    text-shadow: 0 0 30px rgba(0,0,0,0.8); 
+    position: relative; /* Asegura que tome el z-index */
+}
+
+.service-hero p { 
+    font-size: 1.3rem; 
+    color: #ddd; 
+    margin-bottom: 30px; 
+    text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+}
+
+/* Asegurar que el botón sea clickeable */
+.service-hero .btn-primary {
+    position: relative;
+    z-index: 100; /* Muy por encima de todo */
+    cursor: pointer;
+}
+
+
+/* --- FIX DEFINITIVO DE IMÁGENES --- */
+
+/* 1. Para el Fondo del Hero (La imagen grande de arriba) */
+.hero-bg-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.hero-bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cubre todo el espacio sin deformarse */
+    object-position: center;
+    opacity: 0.6; /* Un poco de brillo natural */
+}
+
+/* 2. Para las Imágenes de Contenido (Las de los costados) */
+.showcase-img {
+    width: 100%;
+    height: auto;
+    min-height: 300px; /* Altura mínima para que no desaparezca si no carga */
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    border: 1px solid var(--glass-border);
+    background-color: #222; /* Color de fondo por si falla la carga */
+}
